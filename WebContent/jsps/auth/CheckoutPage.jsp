@@ -27,7 +27,8 @@
 		<%=userName%>, do the checkout.
 	</h3>
 	<br>
-	<form action="<%=response.encodeURL("/biglog/LogoutServlet") %>" method="post">
+	<form action="<%=response.encodeURL("/biglog/LogoutServlet")%>"
+		method="post">
 		<input type="submit" value="Logout">
 	</form>
 </body>
