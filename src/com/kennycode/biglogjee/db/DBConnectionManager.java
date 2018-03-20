@@ -4,10 +4,15 @@ import org.apache.tomcat.jdbc.pool.DataSource;
 
 import com.mysql.jdbc.Connection;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
 public class DBConnectionManager {
+	// thati s the info to connect with the database.
 	private String dbURL;
 	private String user;
 	private String password;
+	// that is the link of connection by web service
+	private String JNDIDataSource;
 	private Connection con;
 	private DataSource dataSource;
 
@@ -15,30 +20,40 @@ public class DBConnectionManager {
 		this.dbURL = url;
 		this.user = u;
 		this.password = p;
-		// create db Connection now!
-		// Context context;
-		// try {
-		// context = new Context();
-		// this.dataSource = (DataSource) context.lookup("java:comp/env/jdbc/biglogdb");
-		// boolean isClosed = this.dataSource.getConnection().isClosed();
-		// if (isClosed) {
-		// System.out.println("Connection is connected!");
-		// }
-		// } catch (NamingException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// } catch (SQLException e) {
-		// e.printStackTrace();
-		// }
-
+		initializeDataSource();
+	}
+	public DBConnectionManager(String JNDI_datasource) {
+		this.JNDIDataSource = JNDI_datasource;
+		initializeDataSource();
 	}
 
-	public Connection getConnection() {
+	private void initializeDataSource() {
+		Context context;
+		try {
+			context = new InitialContext();
+			if(this.JNDIDataSource != null && !this.JNDIDataSource.isEmpty()) {
+				this.dataSource = (DataSource) context.lookup(this.JNDIDataSource);
+			}else {
+				MysqlDataSource mysqlDataSource  = new MysqlDataSource();
+				mysqlDataSource.setURL(this.dbURL);
+				mysqlDataSource.setUser(this.user);
+				mysqlDataSource.setPassword(this.password);
+				this.dataSource = mysqlDataSource;
+			}
+			this.con = this.dataSource.getConnection();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	};
+
+	public Connection getConnection() throws SQLException{
 		return this.con;
 	}
 
-	public void closeConnection() {
-		// close DB connection here!
-		System.out.println("Connection is closed!");
+	public void closeConnection() throws SQLException{
+		this.dataSource.getConnection().close();
 	}
 }
