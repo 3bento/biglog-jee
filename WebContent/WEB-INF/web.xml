@@ -13,6 +13,19 @@
 			com.kennycode.biglogjee.listener.AppContextListener
 		</listener-class>
 	</listener>
+	
+	<listener>
+		<listener-class>
+			com.kennycode.biglogjee.listener.AppContextAttributeListener
+		</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>
+			com.kennycode.biglogjee.listener.MySessionListener
+		</listener-class>
+	</listener>
+	
 
 	<filter>
 		<filter-name>RequestLoggingFilter</filter-name><!-- mandatory -->
@@ -43,7 +56,10 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-
+	<context-param>
+		<param-name>JNDIDataSource</param-name>
+		<param-value>java:/comp/env/jdbc/biglogMySQL</param-value>
+	</context-param>
 	<context-param>
 		<param-name>dbURL</param-name>
 		<param-value>jdbc:mysql://localhost/biglog</param-value>
