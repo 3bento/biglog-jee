@@ -20,7 +20,7 @@ Tasks
 * [TOMEE] http://openejb.apache.org/apache-tomee.html
 
 ## Authors
-** Eduardo Bento Rocha Junior ** - *Initial work* - [Biglog-jee](https://github.com/biglog-jee)
+** Eduardo Bento Rocha Junior ** - *Initial work* - [Biglog-jee](https://github.com/eduardobento2/biglog-jee)
 
 ## License
 
