@@ -2,7 +2,7 @@
 That is web application that you can make account, added friends, recover password, send comment in your time line, and more.
 
 ## Objective of that project
-I made that project to my skills of JEE. I am using JEE (Servlet, EJB, JSP, JSTL, etc).
+I created that project to imporve my skills of JEE. I am using JEE (Servlet, EJB, JSP, JSTL, etc).
 
 ## Progress of that project
 Tasks
