@@ -14,7 +14,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
-@WebFilter("/RequestLogginFilter")
+@WebFilter("/*")
 public class RequestLoggingFilter implements Filter {
 	
 	private ServletContext context;
