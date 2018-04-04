@@ -1,11 +1,11 @@
-#  Detail about that project
-Name: BigLog
-Author: k3nny
-Description: That is simple CRUD with AUTH. (IMPROVE IT)
-Why it:I make that project to improve my knowledge about JEE, i am using a lot of 
-resource of  JEE (Servlet, EJB, JSP, JSTL, etc). (IMPROVE IT) 
+#  Biglog JEE
+That is web application that you can make account, added friends, recover password, send comment in your time line, and more.
 
-Task List
+## Objective of that project
+I made that project to my skills of JEE. I am using JEE (Servlet, EJB, JSP, JSTL, etc).
+
+## Progress of that project
+Tasks
 - [ ] auth (sign in, sign up, sign out)
 - [ ] comment (create, update, list)
 - [ ] profile (show, update)
@@ -14,8 +14,24 @@ Task List
 - [ ] follow (in, out, list of followers, list of follow)
 - [ ] log of action by user(add, edit, remove)
  
-List of keywords:
-* CGI (Common Gateway Interface) - Dynamic Web Application use it! What????
+## Built with
+
+* [Maven] https://maven.apache.org/
+* [TOMEE] http://openejb.apache.org/apache-tomee.html
+
+## Authors
+** Eduardo Bento Rocha Junior ** - *Initial work* - [Biglog-jee](https://github.com/biglog-jee)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+* CGI (Common Gateway Interface)
 	* What is CGI? 
 	* Why does Dynamic Web Application use it?
 * JEE (Servlet)
+	* EJB
+	* JSP
+	* JSTL
+	* JSF
